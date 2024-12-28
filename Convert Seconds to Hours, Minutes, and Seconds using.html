@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Seconds to Hours, Minutes, and Seconds - JS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        .password-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        table {
+            border: 1px solid black;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        td {
+            padding: 20px;
+        }
+
+        .label {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <table>
+            <tr>
+                <td id="days">00</td>
+                <td id="hours">00</td>
+                <td id="min">00</td>
+                <td id="sec">00</td>
+            </tr>
+            <tr>
+                <td class="label">Days</td>
+                <td class="label">Hours</td>
+                <td class="label">Minutes</td>
+                <td class="label">Seconds</td>
+            </tr>
+        </table>
+    </center>
+
+    <script type="text/javascript">
+    
+        var targetDate = new Date();
+        targetDate.setHours(targetDate.getHours() + 96); 
+
+        function updateTime() {
+            var now = new Date();
+            var timeDiff = targetDate - now; 
+
+            if (timeDiff <= 0) {
+
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("min").innerHTML = "00";
+                document.getElementById("sec").innerHTML = "00";
+                return;
+            }
+
+            var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+            days = (days < 10) ? "0" + days : days;
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("min").innerHTML = minutes;
+            document.getElementById("sec").innerHTML = seconds;
+
+            setTimeout(updateTime, 1000);
+        }
+
+        
+        updateTime();
+    </script>
+</body>
+</html>

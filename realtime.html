@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Search Filter using-JS</title>
+    <style>
+        div{
+            width: 1000px;
+            height: 500px;
+            margin: 80px auto;
+        }
+        div form{
+            position: relative;
+            top: 20px;
+            left: 100px;
+        }
+        div form input{
+            width: 79%;
+            padding: 9px;
+            border-radius: 4px;
+            border: 1px solid #e5e5e5;
+        }
+        ul{
+            width: 800px;
+            margin: 50px auto;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action=""method="">
+            <input type="text" id="Search" placeholder="Search here.....">
+        </form>
+        <ul>
+            <li><p>HTML- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident ducimus officiis ipsum voluptas inventore quisquam recusandae quis iste totam, non molestiae at porro similique sed neque voluptates repudiandae repellat?</p></li>
+            <li><p>CSS- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident ducimus officiis ipsum voluptas inventore quisquam recusandae quis iste totam, non molestiae at porro similique sed neque voluptates repudiandae repellat?</p></li>
+            <li><p>BOOTSTRAP- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident ducimus officiis ipsum voluptas inventore quisquam recusandae quis iste totam, non molestiae at porro similique sed neque voluptates repudiandae repellat?</p></li>
+            <li><p>JQUERY- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident ducimus officiis ipsum voluptas inventore quisquam recusandae quis iste totam, non molestiae at porro similique sed neque voluptates repudiandae repellat?</p></li>
+            <li><p>JAVASCRIPT- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident ducimus officiis ipsum voluptas inventore quisquam recusandae quis iste totam, non molestiae at porro similique sed neque voluptates repudiandae repellat?</p></li>
+            <li><p>PHP- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident ducimus officiis ipsum voluptas inventore quisquam recusandae quis iste totam, non molestiae at porro similique sed neque voluptates repudiandae repellat?</p></li>
+            <li><p>PYTHON- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident ducimus officiis ipsum voluptas inventore quisquam recusandae quis iste totam, non molestiae at porro similique sed neque voluptates repudiandae repellat?</p></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var Search = document.getElementById('Search');
+        var li = document.getElementsByTagName('li');
+        Search.onkeyup = ()=>{
+            for(var i=0; i<li.length; i++)
+            {
+               var p = li[i].getElementsByTagName('p')[0];
+               if((p.innerHTML.toUpperCase().indexOf(Search.value) > -1) || (p.innerHTML.toLowerCase().indexOf(Search.value) > -1))
+               {
+                li[i].style.display = "block";
+               }
+               else{
+                li[i].style.display = "none";
+            }
+            }
+            
+        } 
+    </script>
+</body>
+</html>
